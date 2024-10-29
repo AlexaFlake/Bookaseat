@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmation</h1>
+        <div id="confirmationMessage"></div>
+        <div id="durationMessage"></div>
+        <button onclick="location.href='index.html'">Back to Home</button>
+    </div>
+
+    <script>
+        const seat = localStorage.getItem('selectedSeat');
+        const name = prompt("Please enter your name:"); // Ask for the user's name
+
+        const duration = 60; // Set booking duration (e.g., 60 minutes)
+
+        document.getElementById('confirmationMessage').innerText = 
+            `Thank you, ${name}! You have successfully booked seat ${seat}.`;
+        document.getElementById('durationMessage').innerText = 
+            `Your booking is valid for ${duration} minutes.`;
+    </script>
+</body>
+</html>

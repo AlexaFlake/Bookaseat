@@ -1,6 +1,6 @@
 
 
-    h1 {
+    /* h1 {
         color:red;
         background-color:yellow;
         text-align: center;
@@ -14,4 +14,104 @@
 }
 
   #important {color:aqua
+} */
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #f0e5ff, #e3d1f0);
+    color: #4b3c63;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    background: #ffffff; /* Solid white background */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px); /* Optional: adds a blur effect behind the container */
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #6b4f8c;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.button {
+    background-color: #6b4f8c; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 12px 30px; /* Padding for top/bottom and left/right */
+    border-radius: 30px; /* Make the button round */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+    font-size: 1.1rem; /* Font size */
+    font-family: "Gill Sans", sans-serif;/* Dreamy font */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.button:hover {
+    background-color: #5a3d73; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+.seat-map {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    background-color: #a0d5e8;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.availability {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .button {
+        width: 100%;
+    }
 }

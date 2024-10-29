@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Select Your Seat</h1>
+        <div id="seatMap" class="seat-map" >
+            <!-- Creating 5 seats -->
+            <div class="seat" onclick="selectSeat(this)">1</div>
+            <div class="seat" onclick="selectSeat(this)">2</div>
+            <div class="seat" onclick="selectSeat(this)">3</div>
+            <div class="seat" onclick="selectSeat(this)">4</div>
+            <div class="seat" onclick="selectSeat(this)">5</div>
+        </div>
+        <button id="bookSeat" disabled onclick="bookSeat()">Book Selected Seat</button>
+        <div id="selectedSeatMessage" class="message"></div>
+    </div>
+
+    <script>
+        let selectedSeat;
+
+        function selectSeat(seat) {
+            const seats = document.querySelectorAll('.seat');
+            seats.forEach(s => s.classList.remove('selected'));
+            seat.classList.add('selected');
+            selectedSeat = seat.textContent;
+            document.getElementById('bookSeat').disabled = false;
+        }
+
+        function bookSeat() {
+            if (selectedSeat) {
+                localStorage.setItem('selectedSeat', selectedSeat);
+                location.href = 'confirmation.html';
+            }
+        }
+    </script>
+</body>
+</html>
