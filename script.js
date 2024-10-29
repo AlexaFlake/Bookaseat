@@ -1,7 +1,29 @@
-var age = 20
 
-console.log(age)
-console.log('Hello testing')
+        let selectedSeat;
+
+        function selectSeat(seat) {
+            const seats = document.querySelectorAll('.seat');
+            
+            // Remove 'selected' class from all seats and add to the clicked one
+            seats.forEach(s => s.classList.remove('selected'));
+            seat.classList.add('selected');
+            
+            // Set the selected seat number
+            selectedSeat = seat.textContent;
+            
+            // Update the seat number overlay on the image
+            const seatNumberOverlay = document.getElementById('seatNumberOverlay');
+            seatNumberOverlay.textContent = `Seat ${selectedSeat}`;
+            document.querySelector('.button-image-container').classList.add('selected');
+        }
+
+        function bookSeat() {
+            if (selectedSeat) {
+                localStorage.setItem('selectedSeat', selectedSeat);
+                location.href = 'confirmation.html';
+            }
+        }
+
 
 async function scanForBeacons() {
     try {

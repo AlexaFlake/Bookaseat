@@ -43,9 +43,9 @@ body {
 .hero-image {
     width: 100%;
     max-width: 300px;
-    margin: 20px 0;
+    margin: 4px 0;
     border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border:none;
 }
 
 h1 {
@@ -94,6 +94,30 @@ p {
     justify-content: center;
     align-items: center;
 }
+
+        .button-image-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        /* Seat number overlay */
+        .seat-number-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+            display: none;
+        }
+        
+        .button-image-container.selected .seat-number-overlay {
+            display: block;
+        }
+ 
 
 .seat.selected {
     background-color: #007bff;
