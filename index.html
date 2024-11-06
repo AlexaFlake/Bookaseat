@@ -1,38 +1,3 @@
-
-
-<!-- <!Doctype HTML>
-
-<Head><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
-    <title>This Seat?</title>
-    <link rel="stylesheet" href="style.css">
-</Head>
-
-<Body>
-<h1>Seat Available?</h1>
-
-<h2 class="title">Welcome to my blog</h2>
-<h3 class="title"id="important">Written by Seat</h3>
-<h3>Date: 1 Jan 2024</h3>
-
-
-</br>
-
-<a href="<div class="container">
-    <div class="seat-selection">
-        <div id="seatMap" class="seat-map"></div>
-        <button id="Scan to Book">Scan to Book</button>
-
-    </div>
-</br>
-<a href="nlb.gov.sg/main/home" > Seat's Button </a>
-</br>
-</Body>
-
-
-</HTML>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,14 +6,35 @@
     <title>Book a Seat</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src = "script.js"></script>
 </head>
 <body>
     <div class="container">
-        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/Working-pana.png" alt="Booking Animation" class="hero-image">
-        <h1>Book a Seat</h1>
-        <p>Scan the QR code on the table to book your seat.</p>
-        <button class="button" onclick="location.href='seat-selection.html'">Lets select Seat</button>
+        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/GPT_libraryImage.webp" alt="Booking Animation" class="hero-image">
+        <h1>Welcome to Seat Booking Service</h1>
+        <h2>Select an option!</h2>
+
+        <div class="booking-options">
+            <button onclick="StartQRScan()">Scan QR on Table</button>
+            <button onclick="showEmailBookingForm()">Register with Email</button>
+        </div>
+
+        <!-- QR code scanner message (simulated for now) -->
+        <div id="qrMessage" class="message" style="display: none;">
+            <p>QR code scanning in progress...</p>
+        </div>
+
+        <!-- Email booking form -->
+        <div id="emailBookingForm" style="display: none;">
+            <h3>Book a Seat with Your Email</h3>
+            <form onsubmit="bookWithEmail(event)">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Book Seat</button>
+            </form>
+            <div id="emailBookingMessage" class="message"></div>
+        </div>
     </div>
+  
 </body>
 </html>
-

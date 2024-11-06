@@ -3,42 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seat Selection</title>
+    <title>Book a Seat</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Container for seat images and overlay */
-        .seat-container {
-            position: relative;
-            display: inline-block;
-            margin: 10px;
-            cursor: pointer;
-            width: 100px; /* Adjust to fit your image size */
-            height: 100px; /* Adjust to fit your image size */
-        }
-
-        /* Seat image styling */
-        .seat-container img {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Seat number overlay styling */
-        .seat-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgb(25, 24, 24);
-            font-size: 40px;
-            font-weight: bold;
-            
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src = "script.js"></script>
 </head>
 <body>
     <div class="container">
-        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/workspace.gif" alt="Booking Animation" class="hero-image">
-        <h1>Select Your Seat</h1>
+        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/GPT_libraryImage.webp" alt="Booking Animation" class="hero-image">
+
         <div id="seatMap" class="seat-map">
             <!-- Creating seat containers with images and overlaid seat numbers -->
             <div class="seat-container" onclick="selectSeat(1)">
@@ -64,15 +37,6 @@
         </div>
         <div id="selectedSeatMessage" class="message"></div>
     </div>
-
-    <script>
-        function selectSeat(seatNumber) {
-            // Store selected seat in localStorage
-            localStorage.setItem('selectedSeat', seatNumber);
-            
-            // Redirect to confirmation page
-            location.href = 'confirmation.html';
-        }
-    </script>
+  
 </body>
 </html>
