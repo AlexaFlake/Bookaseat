@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Book a Seat</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
@@ -11,28 +11,23 @@
 <body>
     <div class="container">
         <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/GPT_libraryImage.webp" alt="Booking Animation" class="hero-image">
-        <h1>Welcome to Seat Booking Service</h1>
-        <h2>Select an option!</h2>
+        <h1>Welcome to Seniors Seat Booking</h1>
+        <h2>Register to Book Seat</h2>
 
-        <div class="booking-options">
-            <button onclick="StartQRScan()">Scan QR on Table</button>
-            <button onclick="showEmailBookingForm()">Register with Email</button>
-        </div>
+        <div id="emailRegistrationForm" margin-top: 20px;">
+            <form onsubmit="registerWithEmail(event)">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br><br>
 
-        <!-- QR code scanner message (simulated for now) -->
-        <div id="qrMessage" class="message" style="display: none;">
-            <p>QR code scanning in progress...</p>
-        </div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required><br><br>
 
-        <!-- Email booking form -->
-        <div id="emailBookingForm" style="display: none;">
-            <h3>Book a Seat with Your Email</h3>
-            <form onsubmit="bookWithEmail(event)">
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Book Seat</button>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <button type="submit">Submit</button>
             </form>
-            <div id="emailBookingMessage" class="message"></div>
+            <div id="registrationMessage" class="message"></div>
         </div>
     </div>
   

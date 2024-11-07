@@ -2,29 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Confirmation Page</title>
     <link rel="stylesheet" href="style.css">
+    <script src = "script.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>You're all set!</h1>
+        <h1>Your Seat is Confirmed!</h1>
+        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/Research paper-pana.png" alt="confirmedBooking" class="hero-image" width="50%" height="Adjust">
+
         <div id="confirmationMessage"></div>
         <div id="durationMessage"></div>
        <p><img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/home.png" alt="Home Icon" onclick="location.href='index.html'" style="cursor: pointer; width: 40px; height: 40px;"></p>
-
     </div>
-
+    <div id="confirmationMessage" class="message"></div>
+    
+    <!-- Display the confirmation message -->
     <script>
-        const seat = localStorage.getItem('selectedSeat');
-        const name = prompt("Please enter your name:"); // Ask for the user's name
+        // const seat = localStorage.getItem('selectedSeat');
+        const firstName = localStorage.getItem('firstName');
+        const duration = 60; // Set booking duration (e.g., 60 minutes);
 
-        const duration = 60; // Set booking duration (e.g., 60 minutes)
-
-        document.getElementById('confirmationMessage').innerText = 
-            `Thank you, ${name}! We've confirmed Seat ${seat} for you`;
+        // document.getElementById('confirmationMessage').innerText = 
+            <p>'Thank you, ${firstName}!'</p>;
+            <p>'We've confirmed Seat ${selectedSeat} for you'</p>;
+        
         document.getElementById('durationMessage').innerText = 
-            `Your booking is valid for ${duration} minutes.`;
-    </script>
+            <p>'Your booking is valid for ${duration} minutes.'</p>
+
+    </script> 
 </body>
 </html>

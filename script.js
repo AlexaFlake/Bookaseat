@@ -1,96 +1,74 @@
 
+// INDEX HTML------------------------------------------------------------------
 
-function selectSeat(...args: [seatNumber: any] | [seatNumber: any]) {
-    const seats = document.querySelectorAll('.seat');
+// Function to handle registration form submission and redirect to seat-selection.html
+function registerWithEmail(event) {
+    event.preventDefault(); // Prevent default form submission
 
-    Remove; 'selected'; class from { } all; seats; and; add; to; the; clicked; one;
-    seats.forEach(s => s.classList.remove('selected'));
-    seat.classList.add('selected');
+    // Get form values
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
 
-    Set; the; selected; seat; number;
-    selectedSeat = seat.textContent;
+    // Store values in localStorage
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
+    localStorage.setItem("email", email);
 
-    Update; the; seat; number; overlay; on; the; image;
-    const seatNumberOverlay = document.getElementById('seatNumberOverlay');
-    seatNumberOverlay.textContent = `Seat ${selectedSeat}`;
-    document.querySelector('.button-image-container').classList.add('selected');
+    // Redirect to seat-selection.html
+    location.href = "seat-selection.html";
 }
+// --------------------------------------------------------------------------------
 
-// SCAN QR CODES-------------------------------
 
-Function to start QR code scan
-function startQrScan() {
-    alert("QR scan feature will be implemented here.");
-    // Implement QR code scanning logic here
-}
+// SEAT SELECTION HTML ------------------------------------------------------------
 
-// Function to get the 'seat' parameter from the URL
-   function getSeatFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('seat');
-}
+      // Function to handle seat selection and redirect to confirmation page
+      
+      function selectSeat(){
+        console.log("test");
 
-// Function to handle seat selection based on the seat number
-function selectSeat(seatNumber) {
-    localStorage.setItem('selectedSeat', seatNumber);
-    document.getElementById('selectedSeatMessage').textContent = `You selected seat ${seatNumber}`;
-    // Redirect to the confirmation page
-    location.href = 'confirmation.html';
-}
+    //   function selectSeat(seatNumber)----
+        // function selectSeat(seatNumber) {
+            console.log("testing");
+            localStorage.setItem("selectedSeat", seatNumber);
+            location.href = "confirmation.html";
+        }
 
-// Auto-select seat if 'seat' parameter is in URL
-window.onload = function() {
-    const seatNumber = getSeatFromUrl();
-    if (seatNumber) {
-        selectSeat(seatNumber);
-    }
-}; 
+        // const duration = 60; // Set booking duration (e.g., 60 minutes)
 
+        document.getElementById('confirmationMessage').innerText = 
+            `Thank you, ${firstName}! We've confirmed Seat ${seat} for you`;
+        document.getElementById('durationMessage').innerText = 
+            `Your booking is valid for ${duration} minutes.`;
 // ---------------------------------------------------------------------------
 
-// function updateAvailability() {
-const availableSeats = seats.filter(seat => !seat).length;
-availabilityDiv.textContent = `${availableSeats} seats available`;
 
-// Integrate with LED indicators here
-// Example: updateLEDIndicators(seats);
-// async function scanForBeacons() {
-    try {
-        const device = await navigator.bluetooth.requestDevice({
-            filters: [{ services: ['battery_service'] }] // Replace with your beacon's service
-        });
-        
-        const server = await device.gatt.connect();
-        const service = await server.getPrimaryService('battery_service'); // Replace with your service
-        const characteristic = await service.getCharacteristic('battery_level');
-        
-        const value = await characteristic.readValue();
-        console.log(`Battery level: ${value.getUint8(0)}%`);
-        
-        } catch (error) {
-        console.error('Error:', error);
-        }
-        }
-        
-        // Call the scan function
-        scanForBeacons();
-        document.addEventListener('DOMContentLoaded', () => {
-        const seatMap = document.getElementById('seatMap');
-        const bookSeatsButton = document.getElementById('bookSeats');
-        const availabilityDiv = document.getElementById('availability');
-        
-        const totalSeats = 20;
-        const seats = new Array(totalSeats).fill(false); // false means available
-        
-        // Create seat elements
-        for (let i = 0; i < totalSeats; i++) {
-        const seat = document.createElement('div');
-        seat.classList.add('seat');
-        seat.textContent = i + 1;
-        
-        seat.addEventListener('click', () => {
-            seat.classList.toggle('selected');
-        });
-        
-        seatMap.appendChild(seat);
-        }
+
+
+
+
+// CONFIRMATION HTML----------------------------------------------------------
+       
+// Retrieve data from localStorage
+
+const firstName = localStorage.getItem("firstName");
+const lastName = localStorage.getItem("lastName");
+const email = localStorage.getItem("email");
+const seat = localStorage.getItem("selectedSeat");
+const duration = 60; // Set booking duration (e.g., 60 minutes)
+
+// Display the confirmation message
+
+const confirmationMessage = document.getElementById("confirmationMessage");
+if (firstName && selectedSeat) {
+    confirmationMessage = `
+        <p>Thank you, ${firstName}!</p>
+        <p>Your selected seat: ${selectedSeat}</p>
+        <p>Duration:${duration}
+        <p>Enjoy your time at the Central Zone, Level B2!</p>
+    `;
+} else {
+    confirmationMessage.textContent = "Some information is missing. Please try booking again.";
+}
+// -----------------------------------------------------------------------------

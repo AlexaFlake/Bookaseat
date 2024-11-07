@@ -2,37 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Book a Seat</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <script src = "script.js"></script>
+    <link href="script.js">
+
 </head>
 <body>
+    <script>function selectSeat(seatNumber) {
+        console.log("testing");
+        sessionStorage.setItem("selectedSeat", seatNumber);
+        location.href = "confirmation.html";
+    }
+    </script>
+
     <div class="container">
-        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/GPT_libraryImage.webp" alt="Booking Animation" class="hero-image">
+        <h1 style="font-size: 20px;">You are at Central Zone, Level B2</h1>
+        <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/CTPL_SeatSpace1.png" alt="Booking Animation" class="hero-image">
 
         <div id="seatMap" class="seat-map">
             <!-- Creating seat containers with images and overlaid seat numbers -->
             <div class="seat-container" onclick="selectSeat(1)">
-                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/chair.png" alt="Seat 1">
-                <div class="seat-number">1</div>
+                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/square.png" alt="Seat 1">
+                <div class="seatNumber">1</div>
             </div>
             <div class="seat-container" onclick="selectSeat(2)">
-                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/chair.png" alt="Seat 2">
-                <div class="seat-number">2</div>
+                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/square.png" alt="Seat 2">
+                <div class="seatNumber">2</div>
             </div>
             <div class="seat-container" onclick="selectSeat(3)">
-                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/chair.png" alt="Seat 3">
-                <div class="seat-number">3</div>
+                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/square.png" alt="Seat 3">
+                <div class="seatNumber">3</div>
             </div>
             <div class="seat-container" onclick="selectSeat(4)">
-                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/chair.png" alt="Seat 4">
-                <div class="seat-number">4</div>
+                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/square.png" alt="Seat 4">
+                <div class="seatNumber">4</div>
             </div>
             <div class="seat-container" onclick="selectSeat(5)">
-                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/chair.png" alt="Seat 5">
-                <div class="seat-number">5</div>
+                <img src="https://raw.githubusercontent.com/AlexaFlake/Image/main/square.png" alt="Seat 5">
+                <div class="seatNumber">5</div>
             </div>
         </div>
         <div id="selectedSeatMessage" class="message"></div>

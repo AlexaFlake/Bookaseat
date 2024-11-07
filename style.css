@@ -1,15 +1,19 @@
-h1 {
-    color: #6b4f8c;
+@media (max-width: 600px) {
+    h1 {
     font-size: 2rem;
-    margin-bottom: 15px;
+    color: #6b4f8c;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 }
 
 .hero-image {
-    width: 100%;
+    width: 90%;
     display:block;
     margin: 0 auto;
-    border:none;
-    border-radius: 15px;
+    border:20px;
+    border-radius: 20px;
     /* max-width: 300px; */
 }
 
@@ -26,24 +30,25 @@ body {
 }
 
 .container {
+    margin-top: 20px;
     max-width: 600px;
     background: #ffffff; /* Solid white background */
-    padding: 30px;
-    border-radius: 15px; /* Rounded corners */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     backdrop-filter: blur(10px); /* Optional: adds a blur effect behind the container */
 }
 
-/* Booking option buttons */
-.booking-options buttons {
-    width: 150px;
+/* Email book button */
+.EmailBook buttons {
+    width: 200px;
             height: 200px;
             background-color: #52cace;
-            border: 20px;
+            border: 40px;
             border-radius: 20px;
-            color: #1d3557;
+            color: #2d62ac;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
@@ -51,10 +56,10 @@ body {
             transition: all 0.3s ease;
 }
  /* Button hover effect */
- .booking-options button:hover {
+ .EmailBook button:hover {
     background-color: #4a6e85;
     color: #f1faee;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 12px rgba(176, 99, 99, 0.3);
 }
 
 /* Centered message styling */
@@ -77,8 +82,8 @@ p {
     display: inline-block;
     margin: 10px;
     cursor: pointer;
-    width: 100px; /* Adjust to fit your image size */
-    height: 100px; /* Adjust to fit your image size */
+    width: 80px; /* Adjust to fit your image size */
+    height: 80px; /* Adjust to fit your image size */
 }
 
 /* Seat image styling */
@@ -88,17 +93,15 @@ p {
 }
 
 /* Seat number overlay styling */
-.seat-number {
+.seatNumber {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 20px;
+    color: #6495ED;
+    font-size: 25px;
     font-weight: bold;
-    text-shadow: 1px 1px 4px black;
 }
-
 
 .button {
     background-color: #6b4f8c; /* Button background color */
@@ -123,7 +126,6 @@ p {
     gap: 10px;
     margin-bottom: 20px;
 }
-
 .seat {
     width: 40px;
     height: 40px;
@@ -142,40 +144,4 @@ p {
             cursor: pointer;
         }
         
-        /* Seat number overlay */
-        .seat-number-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px black;
-            display: none;
-        }
-        
-        .button-image-container.selected .seat-number-overlay {
-            display: block;
-        }
- 
-
-.seat.selected {
-    background-color: #007bff;
-    color: white;
-}
-
-.availability {
-    margin-top: 20px;
-    font-size: 16px;
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    .button {
-        width: 100%;
-    }
+  
