@@ -27,16 +27,18 @@ function registerWithEmail(event) {
 // SEAT SELECTION HTML ------------------------------------------------------------
       // Function to handle seat selection and redirect to confirmation page
       
-    function selectSeat(){
-        console.log("test");
 
     //   function selectSeat(seatNumber)----
         function selectSeat(seatNumber) {
-            console.log("testing");
+            console.log("Seat selected:", seatNumber);
             localStorage.setItem("selectedSeat", seatNumber);
+
+    // Automatically capture the current time from the user's device as the start time
+        const startTime = new Date().toLocaleString(); // Formats date and time based on the user's locale
+            localStorage.setItem("startTime", startTime);
+
             location.href = "confirmation.html";
         }
-    }
 // ---------------------------------------------------------------------------
 
 
@@ -45,27 +47,24 @@ function registerWithEmail(event) {
 
 
 // CONFIRMATION HTML----------------------------------------------------------
-// Display confirmation message function for confirmation.html
 function displayConfirmationMessage() {
-    // Retrieve data from localStorage
+    // Retrieve other data from localStorage
     const firstName = localStorage.getItem("firstName");
     const selectedSeat = localStorage.getItem("selectedSeat");
+    const startTime = new Date().toLocaleString(); // Get current device time as start time
     const duration = 60; // Set booking duration (e.g., 60 minutes)
 
-    // Get the confirmation message elements
+    // Get the confirmation message element
     const confirmationMessage = document.getElementById("confirmationMessage");
-    const durationMessage = document.getElementById("durationMessage");
 
-    if (firstName && selectedSeat) {
-        confirmationMessage.innerHTML = `
-            <p>Thank you, ${firstName}!</p>
-            <p>Your selected seat: ${selectedSeat}</p>
-            <p>Duration: ${duration} minutes</p>
-            <p>Enjoy your time at the Central Zone, Level B2!</p>
-        `;
-    } else {
-        confirmationMessage.textContent = "Some information is missing. Please try booking again.";
-    }
+    // Build and display the confirmation message
+    confirmationMessage.innerHTML = `
+        <p>Thank you, ${firstName}!</p>
+        <p>Your selected seat: ${selectedSeat}</p>
+        <p>Start Date/Time: ${startTime}</p>
+        <p>Duration: ${duration} minutes</p>
+        <p>Enjoy your time at the Central Zone, Level B2!</p>
+    `;
 }
 
 // Automatically call displayConfirmationMessage when the confirmation page loads
@@ -74,4 +73,17 @@ if (document.readyState === 'loading') {
 } else {
     displayConfirmationMessage();
 }
+
+// Optional: Real-time updating clock display
+function updateTime() {
+    const currentTime = new Date().toLocaleTimeString(); // Update only the time
+    const timeElement = document.getElementById("currentTime");
+    if (timeElement) {
+        timeElement.textContent = `Current Time: ${currentTime}`;
+    }
+}
+
+// Call `updateTime` every second if you want a live clock
+setInterval(updateTime, 1000);
+
 // -----------------------------------------------------------------------------
