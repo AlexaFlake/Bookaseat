@@ -1,6 +1,8 @@
 @media (max-width: 600px) {
     h1 {
+    font-family: 'Arial', sans-serif;
     font-size: 2rem;
+    padding-top: 20px;
     color: #6b4f8c;
     justify-content: center;
     border-radius: 10px;
@@ -9,12 +11,13 @@
 }
 
 .hero-image {
-    width: 90%;
+    width: 70%;
+    padding-top: 20px;
     display:block;
     margin: 0 auto;
     border:20px;
     border-radius: 20px;
-    /* max-width: 300px; */
+    max-width: 300px;
 }
 
 body {

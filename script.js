@@ -21,26 +21,22 @@ function registerWithEmail(event) {
 // --------------------------------------------------------------------------------
 
 
-// SEAT SELECTION HTML ------------------------------------------------------------
 
+
+
+// SEAT SELECTION HTML ------------------------------------------------------------
       // Function to handle seat selection and redirect to confirmation page
       
-      function selectSeat(){
+    function selectSeat(){
         console.log("test");
 
     //   function selectSeat(seatNumber)----
-        // function selectSeat(seatNumber) {
+        function selectSeat(seatNumber) {
             console.log("testing");
             localStorage.setItem("selectedSeat", seatNumber);
             location.href = "confirmation.html";
         }
-
-        // const duration = 60; // Set booking duration (e.g., 60 minutes)
-
-        document.getElementById('confirmationMessage').innerText = 
-            `Thank you, ${firstName}! We've confirmed Seat ${seat} for you`;
-        document.getElementById('durationMessage').innerText = 
-            `Your booking is valid for ${duration} minutes.`;
+    }
 // ---------------------------------------------------------------------------
 
 
@@ -49,26 +45,33 @@ function registerWithEmail(event) {
 
 
 // CONFIRMATION HTML----------------------------------------------------------
-       
-// Retrieve data from localStorage
+// Display confirmation message function for confirmation.html
+function displayConfirmationMessage() {
+    // Retrieve data from localStorage
+    const firstName = localStorage.getItem("firstName");
+    const selectedSeat = localStorage.getItem("selectedSeat");
+    const duration = 60; // Set booking duration (e.g., 60 minutes)
 
-const firstName = localStorage.getItem("firstName");
-const lastName = localStorage.getItem("lastName");
-const email = localStorage.getItem("email");
-const seat = localStorage.getItem("selectedSeat");
-const duration = 60; // Set booking duration (e.g., 60 minutes)
+    // Get the confirmation message elements
+    const confirmationMessage = document.getElementById("confirmationMessage");
+    const durationMessage = document.getElementById("durationMessage");
 
-// Display the confirmation message
+    if (firstName && selectedSeat) {
+        confirmationMessage.innerHTML = `
+            <p>Thank you, ${firstName}!</p>
+            <p>Your selected seat: ${selectedSeat}</p>
+            <p>Duration: ${duration} minutes</p>
+            <p>Enjoy your time at the Central Zone, Level B2!</p>
+        `;
+    } else {
+        confirmationMessage.textContent = "Some information is missing. Please try booking again.";
+    }
+}
 
-const confirmationMessage = document.getElementById("confirmationMessage");
-if (firstName && selectedSeat) {
-    confirmationMessage = `
-        <p>Thank you, ${firstName}!</p>
-        <p>Your selected seat: ${selectedSeat}</p>
-        <p>Duration:${duration}
-        <p>Enjoy your time at the Central Zone, Level B2!</p>
-    `;
+// Automatically call displayConfirmationMessage when the confirmation page loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', displayConfirmationMessage);
 } else {
-    confirmationMessage.textContent = "Some information is missing. Please try booking again.";
+    displayConfirmationMessage();
 }
 // -----------------------------------------------------------------------------
