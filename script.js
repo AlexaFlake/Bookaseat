@@ -9,11 +9,21 @@ function registerWithEmail(event) {
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
     const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const registrationMessage = document.getElementById("registrationMessage");
 
-    // Store values in localStorage
+    // Check that at least one contact field (email or mobile) is filled
+    if (!email && !mobile) {
+        registrationMessage.textContent = "Please enter either an email address or a mobile number.";
+        registrationMessage.style.color = "red";
+        return;
+    }
+
+    // Store form values in localStorage (if needed on the next page)
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("lastName", lastName);
-    localStorage.setItem("email", email);
+    if (email) localStorage.setItem("email", email);
+    if (mobile) localStorage.setItem("mobile", mobile);
 
     // Redirect to seat-selection.html
     location.href = "seat-selection.html";
@@ -87,3 +97,4 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 // -----------------------------------------------------------------------------
+
