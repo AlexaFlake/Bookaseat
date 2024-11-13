@@ -14,7 +14,7 @@ function registerWithEmail(event) {
 
     // Check that at least one contact field (email or mobile) is filled
     if (!email && !mobile) {
-        registrationMessage.textContent = "Please enter either an email address or a mobile number.";
+        registrationMessage.textContent = "Please enter either an email address or a mobile phone number.";
         registrationMessage.style.color = "red";
         return;
     }
