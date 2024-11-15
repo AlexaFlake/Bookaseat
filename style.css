@@ -32,16 +32,21 @@ body, html {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsive Design */
+@media (max-width: 600px) {
+    }
+
+
 /* Headers */
 h1 {
     font-family: Arial, sans-serif, cursive;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #4a6e85;
     margin: 10px 0;
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: 1.5 rem;
     color: #555;
     margin-bottom: 20px;
 }
@@ -50,13 +55,25 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
+.form-group {
+    display:grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    width: 95%;
+    gap: 10px;
+}
 label {
     font-weight: bold;
     color: #4a6e85;
+    width: 100px;
+    text-align: left;
 }
 
 input {
@@ -75,15 +92,17 @@ input:focus {
 
 /* Button Styling */
 button {
-    width: 100%;
-    padding: 12px;
+    width: 101%;
+    padding: 14px;
     font-size: 1rem;
-    color:blue;
-    background-color: whitesmoke;
+    font-weight: bold;
+    color:rgb(0, 132, 255);
+    background-color: rgb(245, 245, 245);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 button:hover {
@@ -128,10 +147,11 @@ button:hover {
     border-radius: 0 5px 0 5px;
 }
 
+
 /* Message and Clock Styling */
 .message {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 20px;
     color: #4a6e85;
     text-align: justify;
 }
@@ -154,16 +174,3 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1;
-    }}
