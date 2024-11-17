@@ -174,3 +174,12 @@ button:hover {
     transform: scale(1.1);
 }
 
+.bottom {
+    color: #4a6e85;
+    text-align: center;
+    padding: 15px 20px; /* Controls internal spacing (inside the .bottom div) */
+    font-size: 0.7rem;
+    border-top: 1px solid #ccc; /* Dividing line at the top */
+    margin-top: 50px; /* Pushes the .bottom section away from the content above */
+    margin-bottom: 50px; /* Pushes the .bottom section further down */
+}
